@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mWordViewModel = new ViewModelProvider(this).get(WordViewModel.class);
-        //mWordViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication())).get(WordViewModel.class);
+        //mWordViewModel = new ViewModelProvider(this).get(WordViewModel.class);
+        mWordViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication())).get(WordViewModel.class); //solusi dari aplikasi force close
 
         mWordViewModel.getAllWords().observe(this, words -> {
             // Update the cached copy of the words in the adapter.
